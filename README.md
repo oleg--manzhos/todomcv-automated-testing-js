@@ -1,2 +1,2 @@
 # todomcv-automated-testing-js
-todos application is quite nice to practise your automation skills
+todos application is quite a nice to practise your automation skills
