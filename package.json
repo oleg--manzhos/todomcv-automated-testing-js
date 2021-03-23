@@ -1,0 +1,24 @@
+{
+  "name": "todomvc-automated-testing-js",
+  "version": "1.0",
+  "description": "todos application is quite a nice to practise your automation skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleg--manzhos/todomvc-automated-testing-js.git"
+  },
+  "keywords": [],
+  "author": {
+    "name" : "Oleh Manzhos",
+    "email" : "oleg.manzhos@gmail.com",
+    "url" : "http://oleg.manzhos.me"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleg--manzhos/todomvc-automated-testing-js/issues"
+  },
+  "homepage": "https://github.com/oleg--manzhos/todomvc-automated-testing-js#readme"
+}
