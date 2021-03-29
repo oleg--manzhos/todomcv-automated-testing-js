@@ -24,8 +24,12 @@ class todos{
     updateItem(oldItem, newItem){
        cy.get('.view>label').contains(oldItem).dblclick()
        return cy.get('li>input').clear().click().type(newItem)
-
     }
+
+    deleteItem(item){
+       return cy.get('.view>label').contains(item).trigger('mouseover').wait(1500).siblings('.destroy').click()
+    }
+
 
 }
 export default todos
