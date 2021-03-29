@@ -1,19 +1,26 @@
 /// <reference types="cypress" />
 import Todos from '../pageObjects/todos'
-
-var url = 'https://todomvc.com/examples/angular2/';
+import Helper from '../helpers/helper'
 
 describe('Add items to Todo list', ()=>{
 
     const todos = new Todos()
+    const helper = new Helper()
 
     beforeEach(()=>{
-        cy.visit(url).contains('todos')
+        helper.open();
     })
 
-    it('Add item to the list - positive test', ()=>{
-        todos.addItem().type('Water the flowers').type('{enter}')
+    it('Add item to the list - positive test - TODOS-001', ()=>{
+        var optionName = 'Water the flowers';
+        todos.addItem().type(optionName).type('{enter}')
+        todos.checkItemInList(optionName).should('have.text', optionName)
+        todos.returnItemCounter().contains('1 item left')
     })
 
-
+    it('Add item with spaces to the list - negative test - TODOS-002', ()=>{
+        var optionName = '  Watch Netfilx ';
+        todos.addItem().type(optionName).type('{enter}')
+        todos.checkItemInList(optionName).should('have.text', optionName.trim())
+    })
 })
