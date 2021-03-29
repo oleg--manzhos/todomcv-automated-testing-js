@@ -22,7 +22,7 @@ describe('Add items to Todo list', ()=>{
     })
 
     it('Add item with spaces to the list - negative test - TODOS-002', ()=>{
-        //crete item name, suurounded with spaces
+        //create item name, suurounded with spaces
         var optionName = '  Watch Netfilx ';
         //add item with spaces
         todos.addItem().type(optionName).type('{enter}')
