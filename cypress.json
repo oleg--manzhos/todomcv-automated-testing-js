@@ -1,1 +1,5 @@
-{}
+{
+  "environment":{
+    "url": "https://todomvc.com/examples/angular2/"
+  }
+}
