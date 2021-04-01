@@ -27,9 +27,10 @@ class todos{
     }
 
     deleteItem(item){
-       return cy.get('.view>label').contains(item).trigger('mouseover').wait(1500).siblings('.destroy').click()
+       return cy.get('.view>label').contains(item)
+            .click().siblings('.destroy')
+            .trigger('mouseover', {force:true}).click({force:true})
     }
-
 
 }
 export default todos
