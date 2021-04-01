@@ -9,8 +9,16 @@ class todos{
 
     }
 
-    checkItemInList(){
-        return cy.get('.view>label')
+    checkItemInList(item){
+        return cy.get('.view>label').contains(item)
+    }
+
+    checkItemNotExist(item){
+        return cy.get('.view>label').contains(item)
+    }
+
+    checkNoListItems(){
+        return cy.get('.main').should('not.exist')
     }
 
     completeItem(item){
@@ -31,6 +39,5 @@ class todos{
             .click().siblings('.destroy')
             .trigger('mouseover', {force:true}).click({force:true})
     }
-
 }
 export default todos
