@@ -36,4 +36,18 @@ describe('Update items in Todo list', ()=>{
          todos.checkItemInList().should('to.exist', 'label')
      })
 
+    it('Update several items at the same time - negative test - TODOS-008', ()=>{
+
+        var oneItem = 'I\'m on edit'
+        var anotherItem = 'I\'m on edit 2'
+        //create items in the list')
+        todos.addItem().type(oneItem).type('{enter}')
+        todos.addItem().type(anotherItem).type('{enter}')
+        //switch both items to edition mode
+        todos.checkItemInList(oneItem).dblclick()
+        todos.checkItemInList(anotherItem).dblclick()
+        //check that both items are in the edit mode at the same time
+        todos.checkItemsInEditMode().should('have.length', 2)
+    })
+
 })

@@ -16,7 +16,6 @@ class todos{
         return cy.get('.view>label').contains(item)
     }
 
-
     checkNoListItems(){
         return cy.get('.main')
     }
@@ -32,6 +31,10 @@ class todos{
     updateItem(oldItem, newItem){
        cy.get('.view>label').contains(oldItem).dblclick()
        return cy.get('li>input').clear().click().type(newItem)
+    }
+
+    checkItemsInEditMode(){
+        return cy.get('.edit')
     }
 
     deleteItem(item){
