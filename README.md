@@ -1,2 +1,2 @@
 # todomvc-automated-testing-js
-todos application is quite a nice to practise your automation skills
+Todos application is quite a nice application to practice your automation skills.

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import Todos from '../pageObjects/todos'
-import Helper from '../helpers/helper'
+import Helper from '../../cypress/support/helper'
 
 describe('Update items in Todo list', ()=>{
 
@@ -21,20 +21,19 @@ describe('Update items in Todo list', ()=>{
         //newItem is displayed
         todos.checkItemInList(newItem).should('have.text', newItem)
         //old item is not displayed
-        todos.checkItemInList(oldItem).should('to.not.have.text', oldItem)
+        todos.checkItemInList(oldItem).should('not.exist', oldItem)
     })
 
     it('Edit item to be empty in the list - negative test - TODOS-005', ()=>{
         var itemName = 'This will be destroyed soon';
-        var emptyItem = '';
         //create an item in the list
         todos.addItem().type(itemName).type('{enter}')
         //update oldItem value to newItem
         todos.updateItem(itemName, ' ')
-        //move focus from edit field
-        todos.addItem().focus()
+        //move focus from edit field to accept empty input
+        todos.addItem().wait(400).click()
         //check that empty item is in the list, thought it is not a correct result
-         todos.checkItemInList(emptyItem).should('have.text', '')
+         todos.checkItemInList().should('to.exist', 'label')
      })
 
 })

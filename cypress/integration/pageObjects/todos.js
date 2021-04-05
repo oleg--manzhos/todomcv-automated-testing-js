@@ -10,15 +10,15 @@ class todos{
     }
 
     checkItemInList(item){
+        if(item == null){
+            return cy.get('.view>label')
+        }
         return cy.get('.view>label').contains(item)
     }
 
-    checkItemNotExist(item){
-        return cy.get('.view>label').contains(item)
-    }
 
     checkNoListItems(){
-        return cy.get('.main').should('not.exist')
+        return cy.get('.main')
     }
 
     completeItem(item){
@@ -26,7 +26,7 @@ class todos{
     }
 
     checkItemCompleted(item){
-        return cy.get('li>.view>label').contains(item).parent().parent().should('have.class', 'completed')
+        return cy.get('li>.view>label').contains(item).parent().parent()
     }
 
     updateItem(oldItem, newItem){
@@ -39,5 +39,15 @@ class todos{
             .click().siblings('.destroy')
             .trigger('mouseover', {force:true}).click({force:true})
     }
+
+    random(length) {
+        var result           = '';
+        var characters       = 'A BCDEFGHIJKL MNOPQRSTUVWX YZabcdefgh ijklmnopq rstuvwxyz';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+           result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+     }
 }
 export default todos
